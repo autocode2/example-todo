@@ -5,4 +5,4 @@ Build a simple react app which a simple todo app.
  - You should be able to filter the todos by complete and incomplete.  
  - You should be able to see the count of complete and incomplete
 
-Generate an index.html and a src/App.js use ES modules and import dependencies from a cdn
+Generate an index.html and a src/App.js that will run in a browser without any further steps.
