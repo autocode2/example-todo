@@ -1,5 +1,5 @@
 #!/bin/zsh
 
 cd generated
-node ../../../../auto-code2/packages/auto-code-cli/dist/index.js code -i ../prompt.txt -m ${MODEL:-haiku} --output-file ../trace.json
+node ../../../../auto-code2/packages/auto-code-cli/dist/index.js code -i ../prompt.txt -m ${MODEL:-haiku} --output-file ../trace.json --exclude-from .llmignore
 
