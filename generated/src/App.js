@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
+const { useState } = React;
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
