@@ -1,0 +1,121 @@
+{
+  "config": {
+    "model": "claude-3-5-sonnet-20240620"
+  },
+  "prompt": "Build a simple react app which a simple todo app.  \n - You should be able to add a todo, delete a todo and update a todo. \n - You should be able to see a list of todos. \n - You should be able to mark a todo as complete. \n - You should be able to filter the todos by complete and incomplete.  \n - You should be able to see the count of complete and incomplete\n\nGenerate an index.html and a src/App.js that will run in a browser without any further steps.\n",
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [],
+  "responses": [
+    {
+      "message": "Certainly! I'll create a simple React todo app with the features you've requested. I'll generate an `index.html` file and a `src/App.js` file that will run in a browser without any further steps. Let's start by creating these files:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "index.html"
+          }
+        },
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/App.js"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 908,
+        "output_tokens": 1174
+      },
+      "time": "2024-08-01T22:10:04.589Z"
+    },
+    {
+      "message": "Great! I've created two files for you: `index.html` and `src/App.js`. These files contain a simple React todo app that meets all your requirements. Let me explain the features and how to use the app:\n\n1. Adding a todo: Type in the input field and click the \"Add Todo\" button.\n2. Deleting a todo: Click the \"Delete\" button next to any todo item.\n3. Updating a todo: Edit the text directly in the input field for each todo item.\n4. Viewing the list of todos: All todos are displayed in a list.\n5. Marking a todo as complete: Click the checkbox next to a todo item.\n6. Filtering todos: Use the \"All\", \"Active\", and \"Completed\" buttons to filter the todos.\n7. Counting complete and incomplete todos: The count is displayed above the todo list.\n\nThe `index.html` file includes the necessary React and Babel scripts to run the app directly in the browser without any build steps. It also includes some basic styling to make the app look presentable.\n\nThe `src/App.js` file contains the entire React application logic, including state management and all the required functionality.\n\nTo run this app:\n\n1. Save both files in their respective locations (index.html in the root directory and App.js in the src folder).\n2. Open the index.html file in a web browser.\n\nThe app should work immediately without any further steps. You can add, delete, update, and filter todos, as well as mark them as complete or incomplete.\n\nIs there anything else you'd like me to explain or modify in the todo app?",
+      "actions": [],
+      "usage": {
+        "input_tokens": 2142,
+        "output_tokens": 365
+      },
+      "time": "2024-08-01T22:10:10.710Z"
+    }
+  ]
+}
