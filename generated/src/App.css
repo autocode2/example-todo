@@ -1,10 +1,72 @@
 #root {
-  max-width: 1280px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+.App {
+  font-family: Arial, sans-serif;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-filter {
+  margin: 20px 0;
+}
+
+.todo-filter button {
+  margin: 0 5px;
+}
+
+.todo-filter button.active {
+  background-color: #646cff;
+  color: white;
+}
+
+.todo-count {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+form input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #e9e9e9;
 }
