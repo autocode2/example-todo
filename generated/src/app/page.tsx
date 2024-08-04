@@ -1,9 +1,12 @@
-'use client'
+'use client';
+
+import TodoList from '@/components/TodoList';
 
 export default function Home() {
   return (
-    <main>
-      <h1 className="text-4xl font-bold">Hello World</h1>
+    <main className="container">
+      <h1 className="text-4xl font-bold mb-4">Todo App</h1>
+      <TodoList />
     </main>
   );
 }
