@@ -2,5 +2,6 @@ node_modules/**/*
 .next/**/*
 **/*.ico
 package-lock.json
+out/**/*
 .llmignore
 .gitignore
