@@ -1,8 +1,10 @@
-Build a simple todo app.  
- - You should be able to add a todo, delete a todo and update a todo. 
- - You should be able to see a list of todos. 
- - You should be able to mark a todo as complete. 
- - You should be able to filter the todos by complete and incomplete.  
+Build a simple todo app.
+ - You should be able to add a todo, delete a todo and update a todo.
+ - You should be able to see a list of todos.
+ - You should be able to mark a todo as complete.
+ - You should be able to filter the todos by complete and incomplete.
  - You should be able to see the count of complete and incomplete
 
 Use typescript, nextjs, tailwind and the components provided in the context.
+
+Note. This is a Nextjs 13+ project, so make sure to use the 'use client' directive appropriately.
