@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+cd generated
+npm install && npm run build
+
