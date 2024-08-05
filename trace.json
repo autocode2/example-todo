@@ -1,0 +1,136 @@
+{
+  "config": {
+    "model": "gpt-4o"
+  },
+  "prompt": "Build a simple todo app.  \n - You should be able to add a todo, delete a todo and update a todo. \n - You should be able to see a list of todos. \n - You should be able to mark a todo as complete. \n - You should be able to filter the todos by complete and incomplete.  \n - You should be able to see the count of complete and incomplete\n\nUse typescript, nextjs, tailwind and the components provided in the context.\n",
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [
+    ".eslintrc.json",
+    "README.md",
+    "components.json",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    "tsconfig.json",
+    "src/lib/utils.ts",
+    "src/components/ui/button.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ],
+  "responses": [
+    {
+      "message": "",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/app/todo/page.tsx"
+          }
+        },
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/app/todo/layout.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 3533,
+        "output_tokens": 1034
+      },
+      "time": "2024-08-05T00:18:24.323Z"
+    },
+    {
+      "message": "I have created the necessary files for a simple Todo app. You can now navigate to `/todo` in your application to see the Todo app in action. Here is a summary of the files created:\n\n1. **`src/app/todo/page.tsx`**: This file contains the main logic for the Todo app, including adding, deleting, updating, and filtering todos.\n2. **`src/app/todo/layout.tsx`**: This file sets up the layout for the Todo app, including metadata and global styles.\n\nYou can now run your development server and navigate to `/todo` to see the Todo app in action. If you need any further modifications or additions, feel free to ask!",
+      "actions": [],
+      "usage": {
+        "input_tokens": 4582,
+        "output_tokens": 143
+      },
+      "time": "2024-08-05T00:18:27.092Z"
+    }
+  ]
+}
