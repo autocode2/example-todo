@@ -1,0 +1,162 @@
+{
+  "config": {
+    "model": "claude-3-5-sonnet-20240620"
+  },
+  "prompt": "Build a simple todo app.  \n - You should be able to add a todo, delete a todo and update a todo. \n - You should be able to see a list of todos. \n - You should be able to mark a todo as complete. \n - You should be able to filter the todos by complete and incomplete.  \n - You should be able to see the count of complete and incomplete\n\nUse typescript, nextjs, tailwind and the components provided in the context.\n",
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [
+    ".eslintrc.json",
+    "README.md",
+    "components.json",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    "tsconfig.json",
+    "src/lib/utils.ts",
+    "src/components/ui/button.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ],
+  "responses": [
+    {
+      "message": "Certainly! I'll create a simple todo app using TypeScript, Next.js, Tailwind CSS, and the components provided in the context. I'll break this down into steps and create the necessary files.\n\nLet's start by creating the required files:\n\n1. Create a new file for the Todo type\n2. Create a new file for the TodoItem component\n3. Update the main page component\n\nLet's begin:\n\n1. First, let's create a new file for the Todo type:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/types/todo.ts"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 4780,
+        "output_tokens": 207
+      },
+      "time": "2024-08-05T00:04:08.399Z"
+    },
+    {
+      "message": "2. Now, let's create a new file for the TodoItem component:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoItem.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 4997,
+        "output_tokens": 565
+      },
+      "time": "2024-08-05T00:04:16.629Z"
+    },
+    {
+      "message": "3. Now, let's update the main page component:",
+      "actions": [
+        {
+          "name": "replace-file",
+          "args": {
+            "filename": "src/app/page.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 5574,
+        "output_tokens": 943
+      },
+      "time": "2024-08-05T00:04:27.648Z"
+    },
+    {
+      "message": "Great! I've created a simple todo app using TypeScript, Next.js, Tailwind CSS, and the components provided in the context. Here's a summary of what I've done:\n\n1. Created a `todo.ts` file to define the Todo type.\n2. Created a `TodoItem.tsx` component to handle individual todo items.\n3. Updated the `page.tsx` file to implement the main todo app functionality.\n\nThe app now has the following features:\n\n- Add a new todo\n- Delete a todo\n- Update a todo (edit functionality)\n- See a list of todos\n- Mark a todo as complete\n- Filter todos by all, active (incomplete), and completed\n- See the count of complete and incomplete todos\n\nThe app uses the Button component from the provided UI components and Tailwind CSS for styling. It's fully typed with TypeScript and uses React hooks for state management.\n\nTo use this app, you don't need to make any additional changes. You can run your Next.js development server, and the todo app should be available on the main page.\n\nIs there anything else you'd like me to add or modify in the todo app?",
+      "actions": [],
+      "usage": {
+        "input_tokens": 6529,
+        "output_tokens": 254
+      },
+      "time": "2024-08-05T00:04:34.189Z"
+    }
+  ]
+}
