@@ -1,0 +1,194 @@
+{
+  "config": {
+    "model": "claude-3-5-sonnet-20240620"
+  },
+  "prompt": "Build a simple todo app.  \n - You should be able to add a todo, delete a todo and update a todo. \n - You should be able to see a list of todos. \n - You should be able to mark a todo as complete. \n - You should be able to filter the todos by complete and incomplete.  \n - You should be able to see the count of complete and incomplete\n\nUse typescript, nextjs, tailwind and the components provided in the context.\n",
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [
+    ".eslintrc.json",
+    "README.md",
+    "components.json",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    "tsconfig.json",
+    "src/lib/utils.ts",
+    "src/components/ui/button.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ],
+  "responses": [
+    {
+      "message": "Certainly! I'll create a simple todo app using TypeScript, Next.js, Tailwind CSS, and the components provided in the context. I'll break this down into steps and create the necessary files and components.\n\nLet's start by creating the main components and updating the existing files:\n\n1. First, let's update the `page.tsx` file to include our Todo app:",
+      "actions": [
+        {
+          "name": "replace-file",
+          "args": {
+            "filename": "src/app/page.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 4825,
+        "output_tokens": 805
+      },
+      "time": "2024-08-06T00:03:44.334Z"
+    },
+    {
+      "message": "Now, let's create the components we're using in the main page:\n\n2. Create `TodoList.tsx`:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoList.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 5640,
+        "output_tokens": 648
+      },
+      "time": "2024-08-06T00:03:52.685Z"
+    },
+    {
+      "message": "3. Create `TodoForm.tsx`:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoForm.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 6300,
+        "output_tokens": 330
+      },
+      "time": "2024-08-06T00:03:57.314Z"
+    },
+    {
+      "message": "4. Create `TodoFilter.tsx`:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoFilter.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 6642,
+        "output_tokens": 355
+      },
+      "time": "2024-08-06T00:04:02.227Z"
+    },
+    {
+      "message": "5. Create `TodoCount.tsx`:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoCount.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 7009,
+        "output_tokens": 241
+      },
+      "time": "2024-08-06T00:04:05.952Z"
+    },
+    {
+      "message": "Now that we have created all the necessary components, our simple todo app is ready. Here's a summary of what we've built:\n\n1. The main `Home` component in `page.tsx` manages the state of todos, handles CRUD operations, and persists the todos in localStorage.\n2. `TodoList` component displays the list of todos and handles editing and deleting individual todos.\n3. `TodoForm` component allows users to add new todos.\n4. `TodoFilter` component provides buttons to filter todos by their completion status.\n5. `TodoCount` component shows the count of complete and incomplete todos.\n\nThe app now has the following features:\n- Add a new todo\n- Delete a todo\n- Update a todo\n- Mark a todo as complete or incomplete\n- Filter todos by all, active, or completed\n- See the count of complete and incomplete todos\n- Persist todos in localStorage\n\nThe app uses TypeScript for type safety, Next.js for the framework, Tailwind CSS for styling, and the provided UI components like `Button` from the shadcn/ui library.\n\nYou can now run the app using `npm run dev` or `yarn dev`, and it should work as expected. Let me know if you want any modifications or have any questions!",
+      "actions": [],
+      "usage": {
+        "input_tokens": 7262,
+        "output_tokens": 278
+      },
+      "time": "2024-08-06T00:04:12.771Z"
+    }
+  ]
+}
