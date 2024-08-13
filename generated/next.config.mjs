@@ -5,7 +5,7 @@ const publishBase = '/autocode-examples/examples/example-todo/' + publishName;
 
 const nextConfig = {
   output: 'export',
-  basePath: publishBase,
+  basePath: process.env.NODE_ENV === 'production' ? publishBase : '',
 };
 
 export default nextConfig;
