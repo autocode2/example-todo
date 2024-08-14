@@ -1,8 +1,19 @@
-Build a simple todo app.  
- - You should be able to add a todo, delete a todo and update a todo. 
- - You should be able to see a list of todos. 
- - You should be able to mark a todo as complete. 
- - You should be able to filter the todos by complete and incomplete.  
- - You should be able to see the count of complete and incomplete
+Build a todo app.
+
+Each todo item should have the following properties:
+- content
+- status (todo, in progress, complete)
+- due date (optional)
+- created date, started date (when it was marked as in progress), completed date (when it was marked as complete)
+- tags (optional)
+- priority (optional)
+
+The app should have the following features:
+ - You should be able to see the list of todos.
+ - You should be able to add a todo, delete a todo and update a todo.
+ - You should be able to mark a todo as complete.
+ - You should be able to filter the todos by tags, status, priority, due date, including combinations of these filters.
+ - You should be able to sort the todos by due date, created date, started date, completed date, priority, status.
+ - You should be able to search for a todo by content.
 
 Use typescript, nextjs, tailwind and the components provided in the context.
