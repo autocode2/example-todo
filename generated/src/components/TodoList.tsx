@@ -11,7 +11,7 @@ const TodoList: React.FC = () => {
       if (filters.status && todo.status !== filters.status) return false;
       if (filters.priority && todo.priority !== filters.priority) return false;
       if (filters.tags && filters.tags.length > 0) {
-        if (!todo.tags || !filters.tags.every(tag => todo.tags.includes(tag))) return false;
+        if (!todo.tags || !filters.tags.every(tag => (todo.tags || []).includes(tag))) return false;
       }
       if (filters.dueDate && todo.dueDate) {
         const filterDate = new Date(filters.dueDate);
