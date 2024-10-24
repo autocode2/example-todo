@@ -1,0 +1,129 @@
+{
+  "prompt": "Build a simple todo app.  \n - You should be able to add a todo, delete a todo and update a todo. \n - You should be able to see a list of todos. \n - You should be able to mark a todo as complete. \n - You should be able to filter the todos by complete and incomplete.  \n - You should be able to see the count of complete and incomplete\n\nUse typescript, nextjs, tailwind and the components provided in the context.\n",
+  "config": {
+    "model": "claude-3-5-sonnet-20241022"
+  },
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [
+    ".eslintrc.json",
+    "README.md",
+    "components.json",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    "tsconfig.json",
+    "src/lib/utils.ts",
+    "src/components/ui/button.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ],
+  "responses": [
+    {
+      "message": "I'll help you create a todo app with all the specified functionality. I'll create the necessary components and state management using React's useState hook.\n\nFirst, let's create a Todo type and the main page component:",
+      "actions": [
+        {
+          "name": "replace-file",
+          "args": {
+            "filename": "src/app/page.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 3,
+        "output_tokens": 1661
+      },
+      "time": "2024-10-24T23:35:04.659Z"
+    },
+    {
+      "message": "I've created a complete todo application with all the requested features:\n\n1. Add todo - Users can add new todos using the input field at the top\n2. Delete todo - Each todo has a delete button (trash icon)\n3. Update todo - Each todo has an edit button (pencil icon) that allows editing\n4. List of todos - All todos are displayed in a list\n5. Mark as complete - Each todo has a checkbox to toggle completion\n6. Filter todos - Buttons to filter by All/Active/Completed\n7. Count of todos - The filter buttons show counts for each category\n\nThe app includes:\n- TypeScript for type safety\n- Next.js for the framework\n- Tailwind CSS for styling\n- shadcn/ui Button component from the provided components\n- Lucide React icons for the UI\n\nFeatures:\n- Responsive design\n- Clean UI with proper spacing and shadows\n- Visual feedback for completed todos (strikethrough)\n- Keyboard support (Enter to add todo)\n- Edit mode with save/cancel options\n- Filter counts update automatically\n- Input validation (empty todos not allowed)\n\nThe app uses React's useState for state management, which is sufficient for this scale. For larger applications, you might want to consider using more robust state management solutions like Redux or Zustand.\n\nYou can now run the application using `npm run dev` and it will work with all the specified functionality.",
+      "actions": [],
+      "usage": {
+        "input_tokens": 1674,
+        "output_tokens": 311
+      },
+      "time": "2024-10-24T23:35:11.304Z"
+    }
+  ]
+}
