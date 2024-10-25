@@ -1,0 +1,242 @@
+{
+  "prompt": "Build a todo app.\n\nEach todo item should have the following properties:\n- content\n- status (todo, in progress, complete)\n- due date (optional)\n- created date, started date (when it was marked as in progress), completed date (when it was marked as complete)\n- tags (optional)\n- priority (optional)\n\nThe app should have the following features:\n - You should be able to see the list of todos.\n - You should be able to add a todo, delete a todo and update a todo.\n - You should be able to mark a todo as complete.\n - You should be able to filter the todos by tags, status, priority, due date, including combinations of these filters.\n - You should be able to sort the todos by due date, created date, started date, completed date, priority, status.\n - You should be able to search for a todo by content.\n\nUse typescript, nextjs, tailwind and the components provided in the context.\n",
+  "config": {
+    "model": "claude-3-5-sonnet-20241022"
+  },
+  "system": {
+    "systemPrompt": "You are an AI coding tool. Help the user with their coding tasks using the tools provided.\n\nYou will be given information about the current project in a <Context></Context> element.  This will include the full contents of files in the project, using <File></File> elements.\n\nUse the tools to perform the task. Ensure that the content of files is complete and will run as-is.  Do not leave any placeholders or elide the code. Guess sensible defaults if required.\n\nYou may call multiple tools in a single response.  You may also call the same tool multiple times. Call all the necessary tools to complete the users request.\n",
+    "tools": [
+      {
+        "name": "message",
+        "description": "Send a message to the user",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create-file",
+        "description": "Create a new file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "remove-file",
+        "description": "Remove a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "replace-file",
+        "description": "Replace the contents of a file",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "contents": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "contents"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  },
+  "context": [
+    ".eslintrc.json",
+    "README.md",
+    "components.json",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    "tsconfig.json",
+    "src/lib/utils.ts",
+    "src/components/ui/button.tsx",
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/app/page.tsx"
+  ],
+  "responses": [
+    {
+      "message": "I'll help you build a comprehensive todo app with all the requested features. I'll break this down into several key components and create the necessary files.\n\nFirst, let's create the types and utilities:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/types/todo.ts"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 3,
+        "output_tokens": 370
+      },
+      "time": "2024-10-25T20:43:36.506Z"
+    },
+    {
+      "message": "Now, let's create a context to manage the todos state:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/context/TodoContext.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 385,
+        "output_tokens": 1155
+      },
+      "time": "2024-10-25T20:43:55.640Z"
+    },
+    {
+      "message": "Let's create some utility functions for filtering and sorting:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/lib/todoUtils.ts"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 1552,
+        "output_tokens": 983
+      },
+      "time": "2024-10-25T20:44:13.079Z"
+    },
+    {
+      "message": "Now, let's create the components for the todo app:",
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoItem.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 2547,
+        "output_tokens": 1023
+      },
+      "time": "2024-10-25T20:44:28.913Z"
+    },
+    {
+      "message": null,
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoForm.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 3582,
+        "output_tokens": 821
+      },
+      "time": "2024-10-25T20:44:41.662Z"
+    },
+    {
+      "message": null,
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoFilters.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 4415,
+        "output_tokens": 1345
+      },
+      "time": "2024-10-25T20:45:04.451Z"
+    },
+    {
+      "message": "Finally, let's update the main page to use all these components:",
+      "actions": [
+        {
+          "name": "replace-file",
+          "args": {
+            "filename": "src/app/page.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 5772,
+        "output_tokens": 249
+      },
+      "time": "2024-10-25T20:45:10.086Z"
+    },
+    {
+      "message": null,
+      "actions": [
+        {
+          "name": "create-file",
+          "args": {
+            "filename": "src/components/TodoList.tsx"
+          }
+        }
+      ],
+      "usage": {
+        "input_tokens": 6033,
+        "output_tokens": 370
+      },
+      "time": "2024-10-25T20:45:17.404Z"
+    },
+    {
+      "message": "I've created a complete todo application with all the requested features. Here's a breakdown of the components and their responsibilities:\n\n1. `TodoContext.tsx` - Manages the global state using React Context and useReducer\n2. `types/todo.ts` - Contains all TypeScript types and interfaces\n3. `lib/todoUtils.ts` - Contains utility functions for filtering and sorting todos\n4. `components/TodoForm.tsx` - Form for creating new todos\n5. `components/TodoItem.tsx` - Individual todo item display and actions\n6. `components/TodoList.tsx` - Displays the filtered and sorted list of todos\n7. `components/TodoFilters.tsx` - Contains all filtering and sorting controls\n\nThe app features:\n- Full CRUD operations for todos\n- Status management (todo, in progress, complete) with automatic date tracking\n- Priority levels (low, medium, high)\n- Tags support\n- Due dates\n- Comprehensive filtering system:\n  - By status\n  - By priority\n  - By tags\n  - By due date range\n  - Full text search\n- Sorting by all relevant fields\n- Responsive design using Tailwind CSS\n- Type safety with TypeScript\n- Uses the provided shadcn/ui button component\n\nTo use the app, simply:\n1. Add todos using the form at the top\n2. Use the filter section to filter and sort todos\n3. Use the buttons on each todo item to update its status or delete it\n\nThe app maintains all the dates automatically:\n- Created date is set when a todo is created\n- Started date is set when status changes to \"in progress\"\n- Completed date is set when status changes to \"complete\"\n\nAll the components are styled using Tailwind CSS and are fully responsive. The app uses the existing project setup and components from the context.",
+      "actions": [],
+      "usage": {
+        "input_tokens": 6415,
+        "output_tokens": 408
+      },
+      "time": "2024-10-25T20:45:28.640Z"
+    }
+  ]
+}
